@@ -1,0 +1,69 @@
+﻿@model PetTracker.Web.Models.Animal
+
+@{
+    ViewData["Title"] = "EditarAnimal";
+}
+
+<h1>Editar cadastro do animal</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditarAnimal">
+                <input type="hidden" asp-for="Id" class="form-control" />
+            <div class="form-group">
+                <label asp-for="Tipo" class="control-label"></label>
+                <select asp-for="Tipo" class="form-control">
+                    <option selected value="Gato">Gato</option>
+                    <option value="Cachorro">Cachorro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Raca" class="control-label"></label>
+                <input asp-for="Raca" class="form-control" />
+                <span asp-validation-for="Raca" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="SRD" /> @Html.DisplayNameFor(model => model.SRD)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idade" class="control-label"></label>
+                <input type="number" min="1" max="99" step="1" asp-for="Idade " class="form-control" />
+                <span asp-validation-for="Idade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Porte" class="control-label"></label>
+                <select asp-for="Porte" class="form-control">
+                    <option selected value="Pequeno">Pequeno</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Grande">Grande</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sexo" class="control-label"></label>
+                <select asp-for="Sexo" class="form-control">
+                    <option selected value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Alterar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ListarAnimais">Voltar para a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
