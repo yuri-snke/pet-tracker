@@ -4,6 +4,7 @@ CRUD built in .NET CORE 3.1 using native MVC and HTTPCLIENT for PetTracker.Api r
 ## Requirements:
 
 - MySQL configured with port 3036.
+- Visual Studio 2019 +.
 
 ## Settings
   
